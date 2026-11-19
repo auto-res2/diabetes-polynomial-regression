@@ -47,6 +47,13 @@ theorem R06_c1_of_lt (testMse : ℚ) (h : testMse < 3424.25) : R06_c1 testMse :=
 theorem R06_c1_not_of_ge (testMse : ℚ) (h : 3424.35 ≤ testMse) : ¬ R06_c1 testMse :=
   not_lt.mpr (le_trans ref1_testMse_bounds.2 h)
 
+/-! ## R07 -/
+abbrev R07_c1 (trainMse trainRmse trainMae trainR2 testMse testRmse testMae testR2 : ℚ) : Prop :=
+  (round (trainMse / 0.1) : ℚ) * 0.1 = 2256.1 ∧ (round (trainRmse / 0.1) : ℚ) * 0.1 = 47.5 ∧
+  (round (trainMae / 0.1) : ℚ) * 0.1 = 38.0 ∧ (round (trainR2 / 0.001) : ℚ) * 0.001 = 0.632 ∧
+  (round (testMse / 0.1) : ℚ) * 0.1 = 3637.1 ∧ (round (testRmse / 0.1) : ℚ) * 0.1 = 60.3 ∧
+  (round (testMae / 0.1) : ℚ) * 0.1 = 46.4 ∧ (round (testR2 / 0.001) : ℚ) * 0.001 = 0.291
+
 /-! ## 検証器が無い claims の公理 -/
 namespace Unobserved
 opaque penaltyWeight : ℚ

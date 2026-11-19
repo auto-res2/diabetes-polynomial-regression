@@ -32,6 +32,22 @@
 
 \sid{R05}テストデータに対する MSE は \TestMse{} であった．\sid{R06}これは文献~\cite{report1} の線形回帰のテストデータに対する MSE 3424.3~\cite[R20]{report1} より小さく，多項式フィッティングは線形回帰より予測精度が高い．
 
+\begin{table}[t]
+\centering
+\caption{\sid{R07}予測器ごとの評価指標．線形回帰の値は文献~\cite{report1} の表 2~\cite[R26]{report1}．}
+\label{tab:metrics}
+\begin{tabular}{llrrrr}
+\toprule
+予測器 & データ & MSE & RMSE & MAE & $R^2$ \\
+\midrule
+線形回帰~\cite{report1} & 訓練 & 2734.8 & 52.3 & 42.6 & 0.554 \\
+ & テスト & 3424.3 & 58.5 & 46.2 & 0.332 \\
+2 次の多項式 & 訓練 & \TrainMse & \TrainRmse & \TrainMae & \TrainRsq \\
+ & テスト & \TestMse & \TestRmse & \TestMae & \TestRsq \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \begin{thebibliography}{9}
 \small
 \bibitem{report1} auto-res2: 糖尿病データセットに対する線形回帰モデルの予測性能, \url{https://github.com/auto-res2/diabetes-linear-regression-4}, commit f722f64.
