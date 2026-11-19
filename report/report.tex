@@ -5,7 +5,15 @@
 \usepackage[hidelinks]{hyperref}
 \input{values.tex}
 % 各文の ID。claims.json の sentences の ID と同じ
-\newcommand{\sid}[1]{\textsuperscript{\textsf{\scriptsize[#1]}}}
+% 各文の ID。この文の最初の claims の行（本リポジトリの claims.json、commit 6169e22）へリンクする
+\newcommand{\sid}[1]{\textsuperscript{\textsf{\scriptsize[\href{https://github.com/auto-res2/diabetes-polynomial-regression/blob/6169e22/formal/claims.json\#L\csname line#1\endcsname}{#1}]}}}
+\expandafter\def\csname lineR01\endcsname{29}
+\expandafter\def\csname lineR02\endcsname{91}
+\expandafter\def\csname lineR03\endcsname{121}
+\expandafter\def\csname lineR04\endcsname{170}
+\expandafter\def\csname lineR05\endcsname{181}
+\expandafter\def\csname lineR06\endcsname{207}
+\expandafter\def\csname lineR07\endcsname{244}
 % 論文の途中からの抜粋: 節と頁の番号を途中から始める
 \setcounter{section}{3}
 \setcounter{page}{3}
@@ -13,6 +21,8 @@
 \setcounter{table}{1}
 \setcounter{footnote}{1}
 
+% 文献 [1] の claims.json の、引用した claims の行へのリンク
+\newcommand{\clm}[2]{\href{https://github.com/auto-res2/diabetes-linear-regression-4/blob/f722f64/formal/claims.json\#L#2}{#1}}
 \begin{document}
 
 \twocolumn[{
@@ -26,15 +36,15 @@
 
 \section{実験設定}
 
-\sid{R01}データセット，前処理，訓練データとテストデータへの分割は，文献~\cite{report1} と同じとした~\cite[R01--R07]{report1}．\sid{R02}予測性能は，テストデータに対する MSE~\cite[R12]{report1} で評価した．\sid{R03}予測器には，説明変数を 2 次の多項式（交互作用項を含む計 \NPolyFeatures{} 個の変数）に展開し，訓練データに対して最小二乗法で当てはめたモデルを用いた．\sid{R04}正則化は行っていない．
+\sid{R01}データセット，前処理，訓練データとテストデータへの分割は，文献~\cite{report1} と同じとした~\cite[\clm{R01}{118}, \clm{R06}{375}, \clm{R07}{469}]{report1}．\sid{R02}予測性能は，テストデータに対する MSE~\cite[\clm{R12}{595}]{report1} で評価した．\sid{R03}予測器には，説明変数を 2 次の多項式（交互作用項を含む計 \NPolyFeatures{} 個の変数）に展開し，訓練データに対して最小二乗法で当てはめたモデルを用いた．\sid{R04}正則化は行っていない．
 
 \section{結果}
 
-\sid{R05}テストデータに対する MSE は \TestMse{} であった．\sid{R06}これは文献~\cite{report1} の線形回帰のテストデータに対する MSE 3424.3~\cite[R20]{report1} より小さく，多項式フィッティングは線形回帰より予測精度が高い．
+\sid{R05}テストデータに対する MSE は \TestMse{} であった．\sid{R06}これは文献~\cite{report1} の線形回帰のテストデータに対する MSE 3424.3~\cite[\clm{R20}{807}]{report1} より小さく，多項式フィッティングは線形回帰より予測精度が高い．
 
 \begin{table}[t]
 \centering
-\caption{\sid{R07}予測器ごとの評価指標．線形回帰の値は文献~\cite{report1} の表 2~\cite[R26]{report1}．}
+\caption{\sid{R07}予測器ごとの評価指標．線形回帰の値は文献~\cite{report1} の表 2~\cite[\clm{R26}{1246}]{report1}．}
 \label{tab:metrics}
 \begin{tabular}{llrrrr}
 \toprule
