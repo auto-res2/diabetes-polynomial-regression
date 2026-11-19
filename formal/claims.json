@@ -4,6 +4,7 @@
     "R02": "予測性能は，テストデータに対する MSE [1, R12] で評価した．",
     "R03": "予測器には，説明変数を 2 次の多項式（交互作用項を含む計 65 個の変数）に展開し，訓練データに対して最小二乗法で当てはめたモデルを用いた．",
     "R04": "正則化は行っていない．",
+    "R05": "テストデータに対する MSE は 3637.1 であった．",
     "R06": "これは文献 [1] の線形回帰のテストデータに対する MSE 3424.3 [1, R20] より小さく，多項式フィッティングは線形回帰より予測精度が高い．"
   },
   "references": [
@@ -172,6 +173,32 @@
         "formalizer": "agent",
         "proposition_name": "R04_c1",
         "arguments": []
+      }
+    },
+    {
+      "id": "R05_c1",
+      "sentence": "R05",
+      "claim": "テストデータに対する MSE は 3637.1 であった",
+      "completion": {
+        "completer": "agent",
+        "sentence": "テストデータに対する MSE は，小数第 1 位に四捨五入すると 3637.1 である",
+        "definitions": [
+          {
+            "term": "値",
+            "meaning": "小数第 1 位に四捨五入"
+          },
+          {
+            "term": "テストデータに対する MSE",
+            "meaning": "有理数"
+          }
+        ]
+      },
+      "formalization": {
+        "formalizer": "agent",
+        "proposition_name": "R05_c1",
+        "arguments": [
+          "testMse"
+        ]
       }
     },
     {

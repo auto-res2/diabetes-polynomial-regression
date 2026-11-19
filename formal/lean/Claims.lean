@@ -24,6 +24,9 @@ abbrev R03_c2 (fitSteps : List String) : Prop :=
 /-- 検証器なし。正則化の係数は 0 である。 -/
 abbrev R04_c1 (penaltyWeight : ℚ) : Prop := penaltyWeight = 0
 
+/-! ## R05 -/
+abbrev R05_c1 (testMse : ℚ) : Prop := (round (testMse / 0.1) : ℚ) * 0.1 = 3637.1
+
 /-! ## R06 -/
 /-- 文献 [1] の線形回帰のテストの MSE（Ref1.testMse）より小さい。 -/
 abbrev R06_c1 (testMse : ℚ) : Prop := testMse < Ref1.testMse
