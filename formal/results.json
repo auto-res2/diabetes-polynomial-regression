@@ -1,0 +1,119 @@
+{
+  "repository": "auto-res2/diabetes-polynomial-regression",
+  "mode": "full",
+  "claims": {
+    "R01_c1": {
+      "status": "verified",
+      "verdict": "真",
+      "axioms": []
+    },
+    "R01_c2": {
+      "status": "verified",
+      "verdict": "真",
+      "axioms": []
+    },
+    "R02_c1": {
+      "status": "verified",
+      "verdict": "真",
+      "axioms": [
+        "propext"
+      ]
+    },
+    "R03_c1": {
+      "status": "verified",
+      "verdict": "真",
+      "axioms": []
+    },
+    "R03_c2": {
+      "status": "verified",
+      "verdict": "真",
+      "axioms": []
+    },
+    "R04_c1": {
+      "status": "unverifiable",
+      "reason": "コードの振る舞いを判定する検証器が無い",
+      "axiom": "R04_c1_axiom"
+    },
+    "R05_c1": {
+      "status": "verified",
+      "verdict": "真",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "R06_c1": {
+      "status": "verified",
+      "verdict": "偽",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ref1.R20_c1_cited",
+        "propext"
+      ]
+    }
+  },
+  "citations": [
+    {
+      "claim": "ref1#R01_c4",
+      "commit": "f722f646081d4766682c58cf0847bceecfccd784",
+      "status": "unverifiable",
+      "verdict": null,
+      "receives": "P",
+      "axiom": "Ref1.R01_c4_cited"
+    },
+    {
+      "claim": "ref1#R06_c1",
+      "commit": "f722f646081d4766682c58cf0847bceecfccd784",
+      "status": "verified",
+      "verdict": "真",
+      "receives": "P",
+      "axiom": "Ref1.R06_c1_cited"
+    },
+    {
+      "claim": "ref1#R07_c2",
+      "commit": "f722f646081d4766682c58cf0847bceecfccd784",
+      "status": "verified",
+      "verdict": "真",
+      "receives": "P",
+      "axiom": "Ref1.R07_c2_cited"
+    },
+    {
+      "claim": "ref1#R12_c1",
+      "commit": "f722f646081d4766682c58cf0847bceecfccd784",
+      "status": "verified",
+      "verdict": "真",
+      "receives": "P",
+      "axiom": "Ref1.R12_c1_cited"
+    },
+    {
+      "claim": "ref1#R13_c1",
+      "commit": "f722f646081d4766682c58cf0847bceecfccd784",
+      "status": "verified",
+      "verdict": "真",
+      "receives": "P",
+      "axiom": "Ref1.R13_c1_cited"
+    },
+    {
+      "claim": "ref1#R20_c1",
+      "commit": "f722f646081d4766682c58cf0847bceecfccd784",
+      "status": "verified",
+      "verdict": "真",
+      "receives": "P",
+      "axiom": "Ref1.R20_c1_cited"
+    }
+  ],
+  "values": {
+    "observedSha256": "\"4733febee697862c22139cdac87478a300ce0d101593deb07ed6c0f3328a99cd\"",
+    "literatureSha256": "\"4733febee697862c22139cdac87478a300ce0d101593deb07ed6c0f3328a99cd\"",
+    "splitSeed": "0",
+    "nTrain": "353",
+    "nTest": "89",
+    "outputKeys": "[\"nSamples\", \"nFeatures\", \"featureColumns\", \"targetColumn\", \"splitSeed\", \"nTrain\", \"nTest\", \"trainIndex\", \"testIndex\", \"loadedXSha256\", \"modelInputXSha256\", \"usedFeatureCount\", \"fitSteps\", \"polyDegree\", \"nPolyFeatures\", \"targetMean\", \"targetStd\", \"trainMse\", \"trainRmse\", \"trainMae\", \"trainR2\", \"testMse\", \"testRmse\", \"testMae\", \"testR2\", \"meanPredictorTestRmse\", \"envCpuModel\", \"envCpuLogicalCores\", \"envMemoryGib\", \"envPython\", \"envNumpy\", \"envScikitLearn\"]",
+    "polyDegree": "2",
+    "nPolyFeatures": "65",
+    "fitSteps": "[\"sklearn.preprocessing.PolynomialFeatures\", \"sklearn.linear_model.LinearRegression\"]",
+    "testMse": "((90928666845181 : ℚ) / 25000000000)"
+  }
+}
