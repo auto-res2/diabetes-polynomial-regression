@@ -1,0 +1,40 @@
+\documentclass[9pt,a4paper,twocolumn]{ltjsarticle}
+\usepackage[top=20mm,bottom=22mm,left=17mm,right=17mm,columnsep=8mm]{geometry}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\input{values.tex}
+% 各文の ID。claims.json の sentences の ID と同じ
+\newcommand{\sid}[1]{\textsuperscript{\textsf{\scriptsize[#1]}}}
+% 論文の途中からの抜粋: 節と頁の番号を途中から始める
+\setcounter{section}{3}
+\setcounter{page}{3}
+\setcounter{equation}{2}
+\setcounter{table}{1}
+\setcounter{footnote}{1}
+
+\begin{document}
+
+\twocolumn[{
+\begin{center}
+{\Large\bfseries 糖尿病データセットに対する多項式回帰の予測性能}\\[2mm]
+{\normalsize auto-res2}\\[1mm]
+{\small （「4 実験設定」および「5 結果」の抜粋）}
+\end{center}
+\vspace{3mm}
+}]
+
+\section{実験設定}
+
+\sid{R01}データセット，前処理，訓練データとテストデータへの分割は，文献~\cite{report1} と同じとした~\cite[R01--R07]{report1}．\sid{R02}予測性能は，テストデータに対する MSE~\cite[R12]{report1} で評価した．\sid{R03}予測器には，説明変数を 2 次の多項式（交互作用項を含む計 \NPolyFeatures{} 個の変数）に展開し，訓練データに対して最小二乗法で当てはめたモデルを用いた．\sid{R04}正則化は行っていない．
+
+\section{結果}
+
+\sid{R05}テストデータに対する MSE は \TestMse{} であった．\sid{R06}これは文献~\cite{report1} の線形回帰のテストデータに対する MSE 3424.3~\cite[R20]{report1} より小さく，多項式フィッティングは線形回帰より予測精度が高い．
+
+\begin{thebibliography}{9}
+\small
+\bibitem{report1} auto-res2: 糖尿病データセットに対する線形回帰モデルの予測性能, \url{https://github.com/auto-res2/diabetes-linear-regression-4}, commit f722f64.
+\end{thebibliography}
+
+\end{document}

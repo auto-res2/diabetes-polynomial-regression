@@ -1,0 +1,298 @@
+{
+  "sentences": {
+    "R01": "データセット，前処理，訓練データとテストデータへの分割は，文献 [1] と同じとした [1, R01–R07]．",
+    "R02": "予測性能は，テストデータに対する MSE [1, R12] で評価した．",
+    "R03": "予測器には，説明変数を 2 次の多項式（交互作用項を含む計 65 個の変数）に展開し，訓練データに対して最小二乗法で当てはめたモデルを用いた．",
+    "R04": "正則化は行っていない．",
+    "R06": "これは文献 [1] の線形回帰のテストデータに対する MSE 3424.3 [1, R20] より小さく，多項式フィッティングは線形回帰より予測精度が高い．"
+  },
+  "references": [
+    {
+      "id": "ref1",
+      "commit": "f722f646081d4766682c58cf0847bceecfccd784",
+      "repository": "https://github.com/auto-res2/diabetes-linear-regression-4",
+      "claims": [
+        "R01_c4",
+        "R06_c1",
+        "R07_c2",
+        "R12_c1",
+        "R13_c1",
+        "R20_c1"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "R01_c1",
+      "sentence": "R01",
+      "claim": "データセットは文献 [1] と同じである",
+      "uses": [
+        "ref1#R01_c4"
+      ],
+      "completion": {
+        "completer": "agent",
+        "sentence": "実行が読んだデータのファイルの SHA-256 は，配布元の URL のファイルの SHA-256 と一致する",
+        "definitions": [
+          {
+            "term": "文献 [1] と同じデータセット",
+            "meaning": "文献 [1] が用いた配布元の URL のファイル（[1, R01] の c4 により，Efron らのデータセット）"
+          },
+          {
+            "term": "実行が読んだデータのファイルの SHA-256，配布元の URL のファイルの SHA-256",
+            "meaning": "文字列"
+          }
+        ]
+      },
+      "formalization": {
+        "formalizer": "agent",
+        "proposition_name": "R01_c1",
+        "arguments": [
+          "observedSha256",
+          "literatureSha256"
+        ]
+      }
+    },
+    {
+      "id": "R01_c2",
+      "sentence": "R01",
+      "claim": "訓練データとテストデータへの分割は文献 [1] と同じである",
+      "uses": [
+        "ref1#R06_c1",
+        "ref1#R07_c2"
+      ],
+      "completion": {
+        "completer": "agent",
+        "sentence": "乱数のシードは 0，訓練データは 353 件，テストデータは 89 件である",
+        "definitions": [
+          {
+            "term": "文献 [1] と同じ分割",
+            "meaning": "[1, R06] の件数と [1, R07] のシードが同じ"
+          },
+          {
+            "term": "シード，訓練データの件数，テストデータの件数",
+            "meaning": "自然数"
+          }
+        ]
+      },
+      "formalization": {
+        "formalizer": "agent",
+        "proposition_name": "R01_c2",
+        "arguments": [
+          "splitSeed",
+          "nTrain",
+          "nTest"
+        ]
+      }
+    },
+    {
+      "id": "R02_c1",
+      "sentence": "R02",
+      "claim": "予測性能は，テストデータに対する MSE で評価した",
+      "uses": [
+        "ref1#R12_c1",
+        "ref1#R13_c1"
+      ],
+      "completion": {
+        "completer": "agent",
+        "sentence": "出力に，テストデータに対する MSE の値がある",
+        "definitions": [
+          {
+            "term": "MSE",
+            "meaning": "[1, R12] の定義"
+          },
+          {
+            "term": "出力にある値の名前",
+            "meaning": "文字列のリスト"
+          }
+        ]
+      },
+      "formalization": {
+        "formalizer": "agent",
+        "proposition_name": "R02_c1",
+        "arguments": [
+          "outputKeys"
+        ]
+      }
+    },
+    {
+      "id": "R03_c1",
+      "sentence": "R03",
+      "claim": "説明変数を 2 次の多項式（交互作用項を含む計 65 個の変数）に展開した",
+      "completion": {
+        "completer": "agent",
+        "sentence": "多項式の次数は 2 で，展開後の変数は 65 個である",
+        "definitions": [
+          {
+            "term": "次数，展開後の変数の数",
+            "meaning": "自然数"
+          }
+        ]
+      },
+      "formalization": {
+        "formalizer": "agent",
+        "proposition_name": "R03_c1",
+        "arguments": [
+          "polyDegree",
+          "nPolyFeatures"
+        ]
+      }
+    },
+    {
+      "id": "R03_c2",
+      "sentence": "R03",
+      "claim": "訓練データに対して最小二乗法で当てはめた",
+      "completion": {
+        "completer": "agent",
+        "sentence": "当てはめの手順は，scikit-learn の PolynomialFeatures の後に LinearRegression である",
+        "definitions": [
+          {
+            "term": "最小二乗法で当てはめた",
+            "meaning": "多項式に展開した後，LinearRegression で当てはめた"
+          },
+          {
+            "term": "手順の名前",
+            "meaning": "文字列のリスト"
+          }
+        ]
+      },
+      "formalization": {
+        "formalizer": "agent",
+        "proposition_name": "R03_c2",
+        "arguments": [
+          "fitSteps"
+        ]
+      }
+    },
+    {
+      "id": "R04_c1",
+      "sentence": "R04",
+      "claim": "正則化の係数は 0 である",
+      "unverifiable": "コードの振る舞いを判定する検証器が無い",
+      "formalization": {
+        "formalizer": "agent",
+        "proposition_name": "R04_c1",
+        "arguments": []
+      }
+    },
+    {
+      "id": "R06_c1",
+      "sentence": "R06",
+      "claim": "多項式のテストデータに対する MSE は，文献 [1] の線形回帰のテストデータに対する MSE より小さい",
+      "uses": [
+        "ref1#R20_c1"
+      ],
+      "completion": {
+        "completer": "agent",
+        "sentence": "テストデータに対する MSE は，文献 [1] の線形回帰のテストデータに対する MSE より小さい",
+        "definitions": [
+          {
+            "term": "文献 [1] の線形回帰のテストデータに対する MSE",
+            "meaning": "[1, R20] の c1 により，小数第 1 位に四捨五入すると 3424.3 になる値"
+          },
+          {
+            "term": "予測精度が高い",
+            "meaning": "テストデータに対する MSE が小さい"
+          },
+          {
+            "term": "テストデータに対する MSE",
+            "meaning": "有理数"
+          }
+        ]
+      },
+      "formalization": {
+        "formalizer": "agent",
+        "proposition_name": "R06_c1",
+        "arguments": [
+          "testMse"
+        ],
+        "proof": {
+          "holds": "R06_c1_of_lt",
+          "fails": "R06_c1_not_of_ge"
+        }
+      }
+    }
+  ],
+  "variables": {
+    "observedSha256": {
+      "type": "String",
+      "meaning": "実行が読んだデータのファイルの SHA-256",
+      "verifier": "GitHub",
+      "query": "artifact_file_sha256",
+      "args": {
+        "path": "outputs/data/diabetes.tab.txt"
+      }
+    },
+    "literatureSha256": {
+      "type": "String",
+      "meaning": "文献が示すファイル（配布元の URL のファイル）の SHA-256",
+      "verifier": "GitHub",
+      "query": "artifact_json",
+      "args": {
+        "path": "fetched_urls.json",
+        "key": "https://www4.stat.ncsu.edu/~boos/var.select/diabetes.tab.txt"
+      }
+    },
+    "splitSeed": {
+      "type": "ℕ",
+      "meaning": "分割の乱数のシード",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    },
+    "nTrain": {
+      "type": "ℕ",
+      "meaning": "訓練データの件数",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    },
+    "nTest": {
+      "type": "ℕ",
+      "meaning": "テストデータの件数",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    },
+    "outputKeys": {
+      "type": "List String",
+      "meaning": "出力にある値の名前",
+      "verifier": "GitHub",
+      "query": "experiment_output_keys"
+    },
+    "polyDegree": {
+      "type": "ℕ",
+      "meaning": "多項式の次数",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    },
+    "nPolyFeatures": {
+      "type": "ℕ",
+      "meaning": "多項式に展開した後の変数の数",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    },
+    "fitSteps": {
+      "type": "List String",
+      "meaning": "当てはめの手順の名前",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    },
+    "testMse": {
+      "type": "ℚ",
+      "meaning": "テストデータに対する MSE",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    }
+  },
+  "axioms": [
+    {
+      "name": "propext",
+      "reason": "Lean 本体の公理。互いに同値な 2 つの命題は等しい"
+    },
+    {
+      "name": "Quot.sound",
+      "reason": "Lean 本体の公理。ある関係で同じとみなした 2 つのものは、その関係で割った型では等しい"
+    },
+    {
+      "name": "Classical.choice",
+      "reason": "Lean 本体の公理。空でない型から元を 1 つ取り出せる"
+    }
+  ]
+}
