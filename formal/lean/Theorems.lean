@@ -9,3 +9,4 @@ theorem R03_c1_holds : R03_c1 (polyDegree := Values.polyDegree) (nPolyFeatures :
 theorem R03_c2_holds : R03_c2 (fitSteps := Values.fitSteps) := by decide +kernel
 theorem R05_c1_holds : R05_c1 (testMse := Values.testMse) := by decide +kernel
 theorem R06_c1_fails : ¬ (R06_c1 (testMse := Values.testMse)) := R06_c1_not_of_ge Values.testMse (by decide +kernel)
+theorem R07_c1_holds : R07_c1 (trainMse := Values.trainMse) (trainRmse := Values.trainRmse) (trainMae := Values.trainMae) (trainR2 := Values.trainR2) (testMse := Values.testMse) (testRmse := Values.testRmse) (testMae := Values.testMae) (testR2 := Values.testR2) := by decide +kernel
